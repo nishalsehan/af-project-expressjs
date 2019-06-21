@@ -42,6 +42,42 @@ assignmentRouter.put('/:id',function(req,res){
                 assignment.markSheet = req.body.filename
 
                 assignment.save().then(data=>{
+
+                            // var output=`<b>Assignment Results are out</b> 
+                            // <p>Dear student , We kindly request you to check the website and download your assignment results.</p>`;
+
+                            // let transporter = nodemailer.createTransport({
+                            //         service: 'gmail',
+                            //         secure: false,
+                            //         port:25,
+                            
+                            //     auth: {
+                            //             user: 'abccampus@gmail.com',
+                            //             pass: 'acbcampus'
+                            //     },
+                            //     tls:{
+                            //             rejectUnauthorized:false
+                            //     }
+                            // });
+                            // let mailOptions = {
+                            //             from: '"ABC Campus" <abccampus.org@gmail.com>',
+                            //             to: 'email',
+                            //             subject: 'Assignment Results',
+                            //             text: 'Hello',
+                            //             html: output
+                            // };
+                            // transporter.sendMail(mailOptions, (error, info) => {
+                            //         if (error) {
+                            //             return console.log(error);
+                            //         }
+                            //             console.log('Email sent: %s', info.messageId);
+                            //             console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+                            // });
+
+
+
+
+
                     res.status(200).send({message:"added",data:data})
                 }).catch(err=>{
                     res.status(500).send({message:err})
@@ -51,4 +87,6 @@ assignmentRouter.put('/:id',function(req,res){
     })
     
 })
+
+
 module.exports = assignmentRouter;
